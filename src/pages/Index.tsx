@@ -144,7 +144,7 @@ const Index = () => {
         </Card>
 
         {/* Results Card */}
-        {hasInput && (
+        {hasInput && showResults && (
           <Card className="w-full shadow-sm animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between gap-4">
