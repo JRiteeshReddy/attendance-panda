@@ -8,7 +8,6 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import hiveLogo from "@/assets/hive_white_logo.png";
 
 const Index = () => {
-  const { theme, setTheme } = useTheme();
   const [totalClasses, setTotalClasses] = useState("");
   const [attendedClasses, setAttendedClasses] = useState("");
   const [requiredPercentage, setRequiredPercentage] = useState("75");
