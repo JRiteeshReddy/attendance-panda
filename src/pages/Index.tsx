@@ -2,13 +2,18 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const Index = () => {
+  const { theme, setTheme } = useTheme();
   const [totalClasses, setTotalClasses] = useState("");
   const [attendedClasses, setAttendedClasses] = useState("");
   const [requiredPercentage, setRequiredPercentage] = useState("75");
+  const [showResults, setShowResults] = useState(false);
 
   const total = parseInt(totalClasses) || 0;
   const attended = parseInt(attendedClasses) || 0;
@@ -58,11 +63,21 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="flex flex-col items-center pt-12 pb-6 px-4">
+      <div className="flex flex-col items-center pt-12 pb-6 px-4 relative">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="absolute top-4 right-4"
+        >
+          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-4xl">🐼</span>
+          <span className="text-4xl">📊</span>
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            AttendancePanda
+            Attendance Calculator Lite
           </h1>
         </div>
         <p className="text-muted-foreground text-sm">Your friendly attendance calculator</p>
@@ -112,6 +127,14 @@ const Index = () => {
               />
             </div>
 
+            <Button 
+              onClick={() => setShowResults(true)} 
+              className="w-full"
+              disabled={!hasInput}
+            >
+              Check Attendance
+            </Button>
+
             {isInvalid && (
               <p className="text-sm text-yellow-600 dark:text-yellow-400">
                 ⚠️ Classes attended cannot exceed total classes held.
@@ -121,7 +144,7 @@ const Index = () => {
         </Card>
 
         {/* Results Card */}
-        {hasInput && (
+        {hasInput && showResults && (
           <Card className="w-full shadow-sm animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
             <CardContent className="pt-6">
               <div className="flex items-start justify-between gap-4">
