@@ -62,7 +62,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="flex flex-col items-center pt-12 pb-6 px-4 relative">
-        <img src={hiveLogo} alt="Logo" className="absolute top-4 left-4 h-10 w-10" />
+        <img src={hiveLogo} alt="Logo" className="absolute top-4 left-4 h-14 w-14" />
         <div className="flex items-center gap-3 mb-2">
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Attendance Calculator Lite
