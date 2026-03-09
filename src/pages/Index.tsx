@@ -5,8 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import hiveLogo from "@/assets/hive_white_logo.png";
 
 const Index = () => {
   const { theme, setTheme } = useTheme();
