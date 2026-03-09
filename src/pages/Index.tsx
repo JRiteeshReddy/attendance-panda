@@ -9,9 +9,11 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const Index = () => {
+  const { theme, setTheme } = useTheme();
   const [totalClasses, setTotalClasses] = useState("");
   const [attendedClasses, setAttendedClasses] = useState("");
   const [requiredPercentage, setRequiredPercentage] = useState("75");
+  const [showResults, setShowResults] = useState(false);
 
   const total = parseInt(totalClasses) || 0;
   const attended = parseInt(attendedClasses) || 0;
