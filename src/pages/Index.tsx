@@ -75,7 +75,6 @@ const Index = () => {
           <span className="sr-only">Toggle theme</span>
         </Button>
         <div className="flex items-center gap-3 mb-2">
-          <span className="text-4xl">📊</span>
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Attendance Calculator Lite
           </h1>
