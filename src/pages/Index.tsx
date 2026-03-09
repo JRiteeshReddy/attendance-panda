@@ -5,11 +5,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import hiveLogo from "@/assets/hive_white_logo.png";
 
 const Index = () => {
-  const { theme, setTheme } = useTheme();
   const [totalClasses, setTotalClasses] = useState("");
   const [attendedClasses, setAttendedClasses] = useState("");
   const [requiredPercentage, setRequiredPercentage] = useState("75");
@@ -64,16 +62,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="flex flex-col items-center pt-12 pb-6 px-4 relative">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="absolute top-4 right-4"
-        >
-          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
+        <img src={hiveLogo} alt="Logo" className="absolute top-4 left-4 h-10 w-10" />
         <div className="flex items-center gap-3 mb-2">
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Attendance Calculator Lite
@@ -228,6 +217,11 @@ const Index = () => {
             </CardContent>
           </Card>
         )}
+      </div>
+
+      {/* Footer */}
+      <div className="pb-6 pt-2 text-center">
+        <p className="text-xs text-muted-foreground">Developed By J Riteesh Reddy</p>
       </div>
     </div>
   );
