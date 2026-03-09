@@ -218,6 +218,11 @@ const Index = () => {
           </Card>
         )}
       </div>
+
+      {/* Footer */}
+      <div className="pb-6 pt-2 text-center">
+        <p className="text-xs text-muted-foreground">Developed By J Riteesh Reddy</p>
+      </div>
     </div>
   );
 };
