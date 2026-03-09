@@ -127,6 +127,14 @@ const Index = () => {
               />
             </div>
 
+            <Button 
+              onClick={() => setShowResults(true)} 
+              className="w-full"
+              disabled={!hasInput}
+            >
+              Check Attendance
+            </Button>
+
             {isInvalid && (
               <p className="text-sm text-yellow-600 dark:text-yellow-400">
                 ⚠️ Classes attended cannot exceed total classes held.
